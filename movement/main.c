@@ -31,7 +31,6 @@ void processInput(GLFWwindow *window, t_state *state)
 	double vel = 0.01;
 	vec_3 mov = {0.0, 0.0, 0.0};
 	vec_2 inp = {0.0, 0.0};
-	vec_2 tmp;
 	double dir;
 
 	player = state->player;
@@ -65,22 +64,22 @@ void processInput(GLFWwindow *window, t_state *state)
 		if (player->dir.x > (2*M_PI))
 			player->dir.x -= (2*M_PI);
 	}
-	dir = sqrt(mov.x*mov.x + mov.y*mov.y);
-	if (mov.x || mov.y)
+	dir = sqrt(inp.x*inp.x + inp.y*inp.y);
+	if (inp.x || inp.y)
 	{
-		mov.x /= dir;
-		mov.y /= dir;
+		inp.x /= dir;
+		inp.y /= dir;
 	}
 	else
 	{
-		mov.x = 0.0;
-		mov.y = 0.0;
+		inp.x = 0.0;
+		inp.y = 0.0;
 	}
-	tmp.x = (mov.x * cos(player->dir.x)) - (mov.y * sin(player->dir.x));
-	tmp.y = (mov.x * sin(player->dir.x)) + (mov.y * sin(player->dir.x));
-	tmp.x *= vel;
-	tmp.y *= vel;
-	player->pos.x += tmp.x;
-	player->pos.y += tmp.y;
+	mov.x = (inp.x * cos(player->dir.x)) - (inp.y * sin(player->dir.x));
+	mov.y = (inp.x * sin(player->dir.x)) + (inp.y * sin(player->dir.x));
+	mov.x *= vel;
+	mov.y *= vel;
+	player->pos.x += mov.x;
+	player->pos.y += mov.y;
 	player->pos.z += mov.z;
 }
