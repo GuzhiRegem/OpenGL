@@ -1,4 +1,3 @@
-
 # OpenGL
 repository working with OpenGL3, GLWF and glut in c
 
@@ -18,7 +17,7 @@ repository working with OpenGL3, GLWF and glut in c
 	sudo make install
 ## GLAD:
 
- 1. Head on to the GLAD web service.
+ 1. Head on to the [GLAD web service](https://glad.dav1d.de/).
  2. Set the language to C++ and choose the specification as OpenGL.
  3. In the API section, select gl version of at least 3.3, make sure the profile is set to Core, and that the Generate a loader option is ticked.
  4. Ignore the extensions and click Generate to produce the resulting library files.
