@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <fcntl.h>
+#include <unistd.h>
 
 typedef struct s_vec2 {
 	double x;
@@ -26,6 +28,10 @@ typedef struct s_state {
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 GLFWwindow *init(void);
+
+void processInput(GLFWwindow *window, t_state *state);
+
+GLuint LoadShaders(const char * vertex_file_path,const char * fragment_file_path);
 
 
 #endif
